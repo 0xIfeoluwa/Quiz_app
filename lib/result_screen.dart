@@ -41,48 +41,52 @@ class ResultScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 42, 15, 117),
-      body: SizedBox(
-        width: double.infinity,
-        child: Container(
-          margin: const EdgeInsets.all(40),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.lato(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 30),
-              QuestionSummary(
-                summaryData,
-              ),
-              const SizedBox(height: 30),
-              TextButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Quiz(),
-                    ),
-                  );
-                },
-                icon: const Icon(
-                  Icons.refresh,
-                  color: Colors.white,
-                ),
-                label: Text(
-                  'Restart Quiz!',
-                  style: GoogleFonts.lato(
-                    color: Colors.white,
-                    fontSize: 15,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: double.infinity,
+            child: Container(
+              margin: const EdgeInsets.all(40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.lato(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
-                ),
+                  const SizedBox(height: 30),
+                  QuestionSummary(
+                    summaryData,
+                  ),
+                  const SizedBox(height: 30),
+                  TextButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Quiz(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.refresh,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Restart Quiz!',
+                      style: GoogleFonts.lato(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

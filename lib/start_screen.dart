@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart ';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/quuestion.dart';
 import 'package:quiz_app/question_screen.dart';
@@ -13,28 +13,22 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
+  void choosedAnswers(String answer) {
+    selectedAnswers.add(answer);
+    if (selectedAnswers.length == questions.length) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ResultScreen(
+            chosenAnswers: selectedAnswers,
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    void choosedAnswers(String answer) {
-      selectedAnswers.add(answer);
-
-      if (selectedAnswers.length == questions.length) {
-        setState(
-          () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ResultScreen(
-                  chosenAnswers: selectedAnswers,
-                ),
-              ),
-            );
-          },
-        );
-      }
-    }
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 42, 15, 117),
       body: Center(

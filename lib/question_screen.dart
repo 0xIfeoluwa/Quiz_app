@@ -13,12 +13,14 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  var currentQuestionIndex = 0;
+  int currentQuestionIndex = 0;
   void answerQuestion(String seclectedAnswers) {
     widget.onSelectAnswer(seclectedAnswers);
-    setState(() {
-      currentQuestionIndex++;
-    });
+    if (currentQuestionIndex  < questions.length-1) {
+      setState(() {
+        currentQuestionIndex++;
+      });
+    }
   }
 
   @override
