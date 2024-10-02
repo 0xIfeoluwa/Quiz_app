@@ -21,7 +21,7 @@ class QuestionSummary extends StatelessWidget {
                     : Colors.red,
                 child: Text(
                   ((data['question_index'] as int) + 1).toString(),
-                  style: GoogleFonts.lato(color: Colors.white),
+                  style: GoogleFonts.lato(color: Colors.black),
                 ),
               ),
               Expanded(
